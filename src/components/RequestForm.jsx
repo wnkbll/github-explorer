@@ -1,25 +1,10 @@
 import React, { useState } from "react";
-import Requests from "../api/requests";
-import { useFetch } from "../hooks/useFetch";
 
-function RequestForm() {
-	const [username, setUsername] = useState("");
-	const [repos, setRepos] = useState([]);
-
-	const [fetchingRepos, isLoading, error] = useFetch(async (username) => {
-		const response = await Requests.getRepos(username);
-
-		return response;
-	});
-
-	function getRepos() {
-		setRepos([...repos, fetchingRepos(username)]);
-	}
-
+function RequestForm({username, setUsername, getRepos}) {
 	return (
-		<div className="grid grid-cols-3 grid-rows-3 h-screen w-screen place-items-center">
-			<div className="col-start-2 col-end-3 row-start-2 row-end-3">
-				<div className="h-64 w-64">
+		<div className="grid grid-cols-3 grid-rows-3 h-screen w-screen bg-github-main place-items-center">
+			<div className="col-start-2 col-end-3 row-start-2 row-end-3 grid grid-cols-1 grid-rows-3 w-80 h-96 bg-slate-100 border-2 border-solid border-github-border rounded-md place-items-center">
+				<div className="row-start-2 row-end-3 h-64 w-64">
 					<label htmlFor="username" className="w-64 block mb-2">
 						Enter username
 					</label>
@@ -28,12 +13,12 @@ function RequestForm() {
 						onChange={(e) => setUsername(e.target.value)}
 						id="username"
 						type="text"
-						className="w-64 border-2 border-solid border-gray-500 rounded-md outline-none px-2 mb-2"
+						className="w-64 bg-slate-100 border-2 border-solid border-github-main rounded-md outline-none px-2 mb-2"
 						placeholder="wnkbll"
 					/>
 					<button
 						onClick={getRepos}
-						className="w-64 border-2 border-solid border-gray-500 rounded-md hover:bg-gray-100"
+						className="w-64 border-2 border-solid border-github-main rounded-md hover:bg-gray-300"
 					>
 						Make request
 					</button>
