@@ -1,24 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RequestForm from "./components/RequestForm";
+import Repos from "./components/Repos";
 import { useFetch } from "./hooks/useFetch";
-import Requests from "./api/requests";
+import Service from "./api/service";
 
 function App() {
 	const [username, setUsername] = useState("");
 	const [repos, setRepos] = useState([]);
 
 	const [fetchingRepos, isLoading, error] = useFetch(async (username) => {
-		const response = await Requests.getRepos(username);
-
-		return response;
+		const service = new Service();
+		const response = await service.getReposByUsername(username);
+		setRepos(response.data);
 	});
 
 	function getRepos() {
-		setRepos([...repos, fetchingRepos(username)]);
+		fetchingRepos(username);
 	}
 
-	return (
-		<RequestForm username={username} setUsername={setUsername} getRepos={getRepos} />
+	return !isLoading ? (
+		<RequestForm
+			username={username}
+			setUsername={setUsername}
+			getRepos={getRepos}
+		/>
+	) : (
+		<Repos repos={repos} />
 	);
 }
 

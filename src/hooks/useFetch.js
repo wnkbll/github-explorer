@@ -10,8 +10,6 @@ export function useFetch(callback) {
 			await callback(...args);
 		} catch (e) {
 			setError(e.message);
-		} finally {
-			setIsLoading(false);
 		}
 	}
 

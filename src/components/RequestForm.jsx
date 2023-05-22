@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function RequestForm({username, setUsername, getRepos}) {
 	return (
@@ -20,7 +20,7 @@ function RequestForm({username, setUsername, getRepos}) {
 						onClick={getRepos}
 						className="w-64 border-2 border-solid border-github-main rounded-md hover:bg-gray-300"
 					>
-						Make request
+						Search
 					</button>
 				</div>
 			</div>
