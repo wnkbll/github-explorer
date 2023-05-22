@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import RequestForm from "./components/RequestForm";
 import Repos from "./components/Repos";
 import { useFetch } from "./hooks/useFetch";

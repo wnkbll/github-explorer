@@ -2,10 +2,10 @@ import React from "react";
 
 function Repos({ repos }) {
 	return (
-		<div className="h-screen w-screen bg-github-main">
+		<div className="flex items-center flex-col gap-5">
 			{repos.map((repo) => {
 				return (
-					<div key={repo.id} className="text-white">
+					<div key={repo.id} className="w-96 h-56 bg-white">
 						{repo.name}
 					</div>
 				);
