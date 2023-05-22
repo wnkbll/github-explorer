@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import Error from "./components/Error";
 import RequestForm from "./components/RequestForm";
 import Repos from "./components/Repos";
-import { useFetch } from "./hooks/useFetch";
 import Service from "./api/service";
-import Error from "./components/Error";
+import { useFetch } from "./hooks/useFetch";
 
 function App() {
 	const [username, setUsername] = useState("");
