@@ -2,11 +2,12 @@ import React from "react";
 
 function Repos({ repos }) {
 	return (
-		<div className="flex items-center flex-col gap-5">
+		<div className="flex flex-col items-center gap-5 w-full h-full bg-github-main">
 			{repos.map((repo) => {
 				return (
-					<div key={repo.id} className="w-96 h-56 bg-white">
+					<div key={repo.id} className="w-1/2 h-56 p-2 bg-white">
 						{repo.name}
+						<img className="w-16 h-16 rounded-full" src={repo.owner.avatar_url} alt={repo.owner.login} />
 					</div>
 				);
 			})}
