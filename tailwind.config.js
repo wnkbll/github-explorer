@@ -7,7 +7,8 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				"github-main": "#0d1117",
+				"github-main": "#010409",
+				"github-side": "#0d1117",
 				"github-border": "#20252c",
 			}
 		},

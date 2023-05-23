@@ -22,7 +22,7 @@ function App() {
 	return (
 		error
 			?	<Error />
-			: 	!isLoading
+			:	!isLoading
 					?	<RequestForm username={username} setUsername={setUsername} getRepos={getRepos} />
 					:	<Repos repos={repos} />
 	);
