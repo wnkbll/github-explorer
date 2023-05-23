@@ -14,7 +14,7 @@ function Error() {
 				<div class="mt-10 flex items-center justify-center gap-x-6">
 					<a
 						href="#"
-						class="rounded-md bg-github-side border-2 border-solid border-github-border px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:border-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+						class="rounded-md bg-github-side border-2 border-solid border-github-border px-3.5 py-2.5 text-sm font-semibold text-white hover:border-gray-500"
 					>
 						Go back home
 					</a>
