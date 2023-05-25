@@ -9,15 +9,15 @@ function App() {
 	const [username, setUsername] = useState("");
 	const [repos, setRepos] = useState([]);
 
-	const [fetchingRepos, isLoaded, error, setError] = useFetch(async (username) => {
+	const [fetchingRepos, isLoaded, error, setError, setIsLoaded] = useFetch(async (username) => {
 		const service = new Service();
 		const response = await service.getReposByUsername(username);
 		setRepos(response.data);
 	});
 
 	return (
-		error
-			?	<Error setError={setError} />
+		error || (repos.length === 0 && isLoaded)
+			?	<Error setError={setError} setIsLoaded={setIsLoaded} />
 			:	isLoaded
 					?	<Repos repos={repos} />
 					:	<RequestForm username={username} setUsername={setUsername} getRepos={() => fetchingRepos(username)} />

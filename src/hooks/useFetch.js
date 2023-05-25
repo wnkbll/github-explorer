@@ -13,5 +13,5 @@ export function useFetch(callback) {
 		}
 	}
 
-    return [fetching, isLoaded, error, setError];
+    return [fetching, isLoaded, error, setError, setIsLoaded];
 }
